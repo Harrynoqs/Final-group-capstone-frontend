@@ -1,16 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const addMotorCycles = createAsyncThunk(
+export const addMotorcycle = createAsyncThunk(
   'motorcycles/getMotorCycles',
   async (motorcycle) => {
     // values from Motorcycle model
-    const { id, name } = motorcycle;
+    const { name } = motorcycle;
     try {
       await axios.post(
         '',
         {
-          id,
           name,
         },
       );
@@ -25,7 +24,7 @@ export const motorcycleSlice = createSlice({
   name: 'motorcycle',
   initialState: [],
   extraReducers(builder) {
-    builder.addCase(addMotorCycles.fulfilled, (state, { payload }) => {
+    builder.addCase(addMotorcycle.fulfilled, (state, { payload }) => {
       state.push(payload);
     });
   },

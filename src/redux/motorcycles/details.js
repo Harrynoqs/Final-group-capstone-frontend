@@ -5,13 +5,13 @@ export const getSingleMotorcycle = createAsyncThunk(
   '',
   async (id) => {
     try {
-      const res = await axios.get(``);
+      const res = await axios.get(`${id}`);
       return res.data;
     } catch (err) {
       return err.message;
     }
-  }
-)
+  },
+);
 
 export const detailsSlice = createSlice({
   name: 'motorcycle-details',
@@ -20,9 +20,9 @@ export const detailsSlice = createSlice({
     builder
       .addCase(getSingleMotorcycle.fulfilled, (state, { payload }) => {
         state.push(payload);
-      })
-  }
-})
+      });
+  },
+});
 
 const { reducer } = detailsSlice;
 export default reducer;

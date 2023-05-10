@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSingleMotorcycle } from '../redux/motorcycles/details';
+import { useDispatch } from 'react-redux';
 import { addReservation } from '../redux/reservations/reservations';
 
 const AddReservation = () => {
@@ -11,11 +10,11 @@ const AddReservation = () => {
   const [date, setDate] = useState(null);
   const [city, setCity] = useState('');
   const motorcycleId = location.state?.id;
-  
+
   const createNewReservation = (date, city, motorcycleId) => ({
     date,
     city,
-    motorcycleId
+    motorcycleId,
   });
 
   const handleSubmit = (e) => {
@@ -24,7 +23,7 @@ const AddReservation = () => {
     dispatch(addReservation(reservation)).unwrap();
     setDate(null);
     setCity('');
-  }
+  };
 
   return (
     <div>
@@ -33,5 +32,7 @@ const AddReservation = () => {
         <input placeholder="City" type="text" name="City" value={city} onChange={(e) => setCity(e.target.value)} />
       </form>
     </div>
-  )
-}
+  );
+};
+
+export default AddReservation;

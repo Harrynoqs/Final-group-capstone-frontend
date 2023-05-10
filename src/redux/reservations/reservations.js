@@ -1,21 +1,21 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const addReservation = createAsyncThunk(
   '',
   async (reservation) => {
-    const { date, time, motorcycleId } = reservation;
+    const { date, city, motorcycleId } = reservation;
     await axios.post(
       '',
-      { 
+      {
         date,
         city,
-        motorcycle_id: motorcycleId
-      }
-      );
-      return reservation;
-  }
-)
+        motorcycle_id: motorcycleId,
+      },
+    );
+    return reservation;
+  },
+);
 
 export const getReservations = createAsyncThunk(
   '',
@@ -26,8 +26,8 @@ export const getReservations = createAsyncThunk(
     } catch (err) {
       return err.message;
     }
-  }
-)
+  },
+);
 
 export const reservationSlice = createSlice({
   name: '',
@@ -41,12 +41,12 @@ export const reservationSlice = createSlice({
         const reservation = {
           motorcycleId: payload.motorcycle_id,
           date: payload.date,
-          city: payload.city
+          city: payload.city,
         };
         state.push(reservation);
       });
-  }
-})
+  },
+});
 
 const { reducer } = reservationSlice;
 export default reducer;

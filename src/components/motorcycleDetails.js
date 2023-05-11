@@ -8,39 +8,61 @@ export const MotorcycleDetails = () => {
   const location = useLocation();
 
   const id = location.state?.id;
-  
+
   useEffect(() => {
     dispatch(getSingleMotorcycle(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const details = useSelector((state) => state.motorcycleDetails);
   const imageSectionStyles = {
     backgroundImage: `url("${details.image_url}")`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-  }
-  
+    backgroundPosition: 'center',
+  };
+
   return (
     <div>
-      <section style={imageSectionStyles}>
-      </section>
+      <section style={imageSectionStyles} />
       <section>
         <h5>{details.name}</h5>
         <p>{details.description}</p>
         <ul>
-          <li><span>Model Year</span><span>{details.model_year}</span></li>
-          <li><span>Fuel Type</span><span>{details.fuel_type}</span></li>
-          <li><span>Finance Fee</span><span>${details.price}</span></li>
-          <li><span>Total Amount Payable</span><span>${details.price} * {Math.floor(Math.random() * (10 - 2) + 10)}</span></li>
+          <li>
+            <span>Model Year</span>
+            <span>{details.model_year}</span>
+          </li>
+          <li>
+            <span>Fuel Type</span>
+            <span>{details.fuel_type}</span>
+          </li>
+          <li>
+            <span>Finance Fee</span>
+            <span>
+              $
+              {details.price}
+            </span>
+          </li>
+          <li>
+            <span>Total Amount Payable</span>
+            <span>
+              $
+              {details.price}
+              {' '}
+              *
+              {Math.floor(Math.random() * (10 - 2) + 10)}
+            </span>
+          </li>
         </ul>
         <div>
-          <Link to='/'>discover more models</Link>
+          <Link to="/">discover more models</Link>
         </div>
         <div>
-          <button>Reserve</button>
+          <button type="button">Reserve</button>
         </div>
       </section>
     </div>
-  ) 
-}
+  );
+};
+
+export default MotorcycleDetails;

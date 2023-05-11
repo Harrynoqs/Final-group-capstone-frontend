@@ -9,7 +9,7 @@ const AddReservation = () => {
 
   const [date, setDate] = useState(null);
   const [city, setCity] = useState('');
-  const [duration, setDuration] = useState('');
+  const [duration, setDuration] = useState(0);
   const motorcycleId = location.state?.id;
   const motorcycleName = location.state?.name;
 
@@ -31,8 +31,9 @@ const AddReservation = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="motorcycle" value={motorcycleName}/>
+        <input type="text" name="motorcycle" value={motorcycleName} />
         <input type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        <input placeholder="Duration" type="number" name="Duration" value={duration} onChange={(e) => setDuration(e.target.value)} />
         <input placeholder="City" type="text" name="City" value={city} onChange={(e) => setCity(e.target.value)} />
       </form>
     </div>

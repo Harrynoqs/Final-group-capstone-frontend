@@ -5,7 +5,9 @@ export const addMotorcycle = createAsyncThunk(
   'motorcycles/addMotorCycles',
   async (motorcycle) => {
     // values from Motorcycle model
-    const { name, description, imageUrl, price, modelYear, engineType, fuelType } = motorcycle;
+    const {
+      name, description, imageUrl, price, modelYear, engineType, fuelType,
+    } = motorcycle;
     try {
       await axios.post(
         `${import.meta.env.VITE_API_ENDPOINT}/twowheelers/new`,
@@ -16,7 +18,7 @@ export const addMotorcycle = createAsyncThunk(
           price,
           model_year: modelYear,
           engine_type: engineType,
-          fuel_type: fuelType
+          fuel_type: fuelType,
         },
       );
       return motorcycle;

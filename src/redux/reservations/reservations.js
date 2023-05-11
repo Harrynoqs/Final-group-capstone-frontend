@@ -4,7 +4,9 @@ import axios from 'axios';
 export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (reservation) => {
-    const { date, city, duration, user, motorcycleId } = reservation;
+    const {
+      date, city, duration, user, motorcycleId,
+    } = reservation;
     await axios.post(
       `${import.meta.env.VITE_API_ENDPOINT}/reservations/user/${reservation.user}`,
       {
@@ -43,7 +45,7 @@ export const reservationSlice = createSlice({
         const reservation = {
           date: payload.date_of_reservation,
           city: payload.city,
-          duration: duration_of_test_drive,
+          duration: payload.duration_of_test_drive,
           user: payload.user_id,
           motorcycleId: payload.twowheeler_id,
         };

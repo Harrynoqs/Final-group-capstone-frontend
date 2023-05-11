@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const addMotorcycle = createAsyncThunk(
-  'motorcycles/getMotorCycles',
+  'motorcycles/addMotorCycles',
   async (motorcycle) => {
     // values from Motorcycle model
     const { name, description, imageUrl, price, modelYear, engineType, fuelType } = motorcycle;

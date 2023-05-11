@@ -3,9 +3,9 @@ import motorcycleReducer from './motorcycles/motorcycles';
 import reservationReducer from './reservations/reservations';
 
 const store = configureStore({
-  reducer: { 
+  reducer: {
     motorcycle: motorcycleReducer,
-    reservation: reservationReducer
+    reservation: reservationReducer,
   },
 });
 

@@ -2,15 +2,19 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const addReservation = createAsyncThunk(
-  '',
+  'reservations/addReservation',
   async (reservation) => {
-    const { date, city, motorcycleId } = reservation;
+    const {
+      date, city, duration, user, motorcycleId,
+    } = reservation;
     await axios.post(
-      '',
+      `${import.meta.env.VITE_API_ENDPOINT}/reservations/user/${reservation.user}`,
       {
-        date,
+        date_of_reservation: date,
         city,
-        motorcycle_id: motorcycleId,
+        duration_of_test_drive: duration,
+        user_id: user,
+        twowheeler_id: motorcycleId,
       },
     );
     return reservation;
@@ -18,10 +22,10 @@ export const addReservation = createAsyncThunk(
 );
 
 export const getReservations = createAsyncThunk(
-  '',
-  async () => {
+  'reservations/getReservations',
+  async (user) => {
     try {
-      const res = await axios.get('');
+      const res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/${user}/reservations}`);
       return res.data;
     } catch (err) {
       return err.message;
@@ -30,7 +34,7 @@ export const getReservations = createAsyncThunk(
 );
 
 export const reservationSlice = createSlice({
-  name: '',
+  name: 'reservations',
   initialState: [],
   extraReducers(builder) {
     builder
@@ -39,9 +43,11 @@ export const reservationSlice = createSlice({
       })
       .addCase(getReservations.fulfilled, (state, { payload }) => {
         const reservation = {
-          motorcycleId: payload.motorcycle_id,
-          date: payload.date,
+          date: payload.date_of_reservation,
           city: payload.city,
+          duration: payload.duration_of_test_drive,
+          user: payload.user_id,
+          motorcycleId: payload.twowheeler_id,
         };
         state.push(reservation);
       });

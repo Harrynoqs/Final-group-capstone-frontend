@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addMotorcycle } from '../redux/motorcycles/addSlice';
+import { addMotorcycle } from '../redux/motorcycles/motorcycles';
 
 const AddMotorcycle = () => {
   const [name, setName] = useState('');

@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getSingleMotorcycle = createAsyncThunk(
-  '',
+  'motorcycles/getMotorcycleDetails',
   async (id) => {
     try {
-      const res = await axios.get(`${id}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/twowheelers/${id}`);
       return res.data;
     } catch (err) {
       return err.message;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginUser, registerUser } from '../redux/users/users';
 
 const Login = () => {
@@ -7,27 +7,25 @@ const Login = () => {
   const [username, setUserName] = useState('');
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
-  console.log(user);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
+
     dispatch(loginUser(username));
     setNotice(`Logged in as: ${username}`);
     setTimeout(() => {
-        window.location.href = '/';
+      window.location.href = '/';
     }, 300);
-  }
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
     dispatch(registerUser);
     setNotice(`Successfully registered as: ${username}`);
     setTimeout(() => {
-        window.location.href = '/';
+      window.location.href = '/';
     }, 300);
-  }
+  };
 
   return (
     <>
@@ -43,6 +41,6 @@ const Login = () => {
       <p id="message">{notice}</p>
     </>
   );
-}
+};
 
 export default Login;

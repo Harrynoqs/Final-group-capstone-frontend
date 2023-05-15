@@ -7,18 +7,17 @@ const store = configureStore({
   reducer: {
     motorcycle: motorcycleReducer,
     reservation: reservationReducer,
-    user: userReducer
+    user: userReducer,
   },
 });
 
 const handleChange = () => {
-  let nextState = store.getState().user.user;
-  console.log(nextState);
+  const nextState = store.getState().user.user;
   if (nextState.length > 0) {
     const serializedState = JSON.stringify(nextState);
     localStorage.setItem('state', serializedState);
   }
-}
+};
 
 export const unsubscribe = store.subscribe(() => {
   handleChange();

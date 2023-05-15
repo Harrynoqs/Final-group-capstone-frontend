@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SwiperCore, { Virtual, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMotorcycles } from '../redux/motorcycles/motorcycles'; 
+import { getMotorcycles } from '../redux/motorcycles/motorcycles';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -19,7 +19,7 @@ export default function BikeSwiper() {
   }, [dispatch]);
 
   const motorcycles = useSelector((state) => state.motorcycle);
-  
+
   // Set breakpoints for swiper
   const breakpoints = {
     320: {

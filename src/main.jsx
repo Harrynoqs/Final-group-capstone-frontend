@@ -7,9 +7,9 @@ import './index.css';
 import store from './redux/configureStore';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
+  <Provider store={store}>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-    </Provider>,
+  </Provider>,
 );

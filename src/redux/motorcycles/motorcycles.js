@@ -38,32 +38,31 @@ export const getMotorcycles = createAsyncThunk(
       return err.message;
     }
   },
-)
-
+);
 
 export const motorcycleSlice = createSlice({
   name: 'motorcycle',
   initialState: [],
   extraReducers(builder) {
-    builder.
-    addCase(addMotorcycle.fulfilled, (state, { payload }) => {
-      state.push(payload);
-    })
-    .addCase(getMotorcycles.fulfilled, (state, action) => {
-      const ids = Object.keys(action.payload);
-      ids.forEach((id) => {
-        const motorcycle = {
-          name: action.payload[id].name,
-          description: action.payload[id].description,
-          imageUrl: action.payload[id].image_url,
-          price: action.payload[id].price,
-          modelYear: action.payload[id].model_year,
-          engineType: action.payload[id].engine_type,
-          fuelType: action.payload[id].fuel_type,
-        }
-        state.push(motorcycle);
+    builder
+      .addCase(addMotorcycle.fulfilled, (state, { payload }) => {
+        state.push(payload);
       })
-    })
+      .addCase(getMotorcycles.fulfilled, (state, action) => {
+        const ids = Object.keys(action.payload);
+        ids.forEach((id) => {
+          const motorcycle = {
+            name: action.payload[id].name,
+            description: action.payload[id].description,
+            imageUrl: action.payload[id].image_url,
+            price: action.payload[id].price,
+            modelYear: action.payload[id].model_year,
+            engineType: action.payload[id].engine_type,
+            fuelType: action.payload[id].fuel_type,
+          };
+          state.push(motorcycle);
+        });
+      });
   },
 });
 

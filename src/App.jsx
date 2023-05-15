@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import './App.css';
-import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
 import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
 import LoadingIcon from './components/loadingIcon';

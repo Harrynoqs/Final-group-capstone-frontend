@@ -1,19 +1,25 @@
 import React, { Suspense } from 'react';
 import './App.css';
+import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
 import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
 import LoadingIcon from './components/loadingIcon';
 
+
 function App() {
   return (
-    <div className="flex flex-col min-h-screen sm:flex-row">
-      <Sidebar />
-      <div className="flex-1 border-2 border-gray-200 border-dashed rounded-lg md:p-4 md:ml-64 dark:border-gray-700">
-        <Suspense fallback={<LoadingIcon />}>
-          <BikeModel />
-        </Suspense>
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen sm:flex-row">
+        <Sidebar />
+        <div className="flex-1 border-2 border-gray-200 border-dashed rounded-lg md:p-4 md:ml-64 dark:border-gray-700">
+          <Suspense fallback={<LoadingIcon />}>
+            <Routes>
+              <Route index element={<BikeModel />} />
+            </Routes>
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 export default App;

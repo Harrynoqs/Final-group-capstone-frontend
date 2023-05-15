@@ -5,6 +5,7 @@
 #root {
   height: 100%;
 }
+
 html,
 body {
   position: relative;
@@ -23,6 +24,7 @@ body {
 .swiper {
   width: 100%;
   height: 100%;
+  margin: 20px auto;
 }
 
 .swiper-slide {
@@ -46,14 +48,10 @@ body {
   object-fit: cover;
 }
 
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin: 20px auto;
-}
 .swiper-pagination {
   padding: 10px 0;
 }
+
 .append-buttons {
   text-align: center;
   margin-top: 20px;

@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
-import './App.css'
+import './App.css';
 import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
-import { LoadingIcon } from './components/loadingIcon';
- function App() {
+import LoadingIcon from './components/loadingIcon';
+
+function App() {
   return (
     <div className="flex flex-col min-h-screen sm:flex-row">
       <Sidebar />
@@ -15,4 +16,4 @@ import { LoadingIcon } from './components/loadingIcon';
     </div>
   );
 }
- export default App;
+export default App;

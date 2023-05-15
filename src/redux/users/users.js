@@ -14,13 +14,15 @@ export const loginUser = createAsyncThunk(
   }
 )
 
-export const signUpUser = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   'users/register',
   async (name) => {
     await axios.post(
         `${import.meta.env.VITE_API_ENDPOINT}/register`,
         {
-          name: name,
+          user: {
+            name: name,
+          }
         }
       )
       return name;
@@ -38,13 +40,10 @@ export const usersSlice = createSlice({
     extraReducers(builder) {
       builder
         .addCase(loginUser.fulfilled, (state, { payload }) => {
-          const user = {
-            name: localUser? localUser?.name : payload.name
-          };
-          state.push(user);
+          state.user.push(localUser? localUser : payload);
         })
-        .addCase(register.fulfilled, (state, { payload }) => {
-          state.push(payload);
+        .addCase(registerUser.fulfilled, (state, { payload }) => {
+          state.user.push(payload);
         });
     },
 })

@@ -13,9 +13,8 @@ const store = configureStore({
 
 const handleChange = () => {
   let nextState = store.getState().user.user;
-  if (nextState) {
-    nextState = [...new Map(nextState.map((item) => (
-      [item.id, item]))).values()];
+  console.log(nextState);
+  if (nextState.length > 0) {
     const serializedState = JSON.stringify(nextState);
     localStorage.setItem('state', serializedState);
   }

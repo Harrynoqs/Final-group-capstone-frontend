@@ -4,7 +4,7 @@ import { BrowserRouter, Router, Routes, Route} from 'react-router-dom';
 import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
 import LoadingIcon from './components/loadingIcon';
-
+import Login from './components/login';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
           <Suspense fallback={<LoadingIcon />}>
             <Routes>
               <Route index element={<BikeModel />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </Suspense>
         </div>

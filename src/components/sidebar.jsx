@@ -46,7 +46,7 @@ function Sidebar() {
         } sm:translate-x-0`}
         aria-label="Sidebar"
       >
-        <div className="h-screen px-3 py-4 overflow-y-hidden bg-gray-400 dark:bg-gray-800">
+        <div className="h-screen px-3 py-4 overflow-y-hidden bg-blue-400 dark:bg-gray-800">
           <div>
             <img src="./images/black1.png" alt="SEH bikes" className="mb-9" />
           </div>
@@ -97,7 +97,7 @@ function Sidebar() {
                 <li className="w-9 h-9"><a href="www.amazin.com"><i className="text-2xl fa-brands fa-amazon" role="button" aria-label="facebook" /></a></li>
                 <li className="w-9 h-9"><a href="www.google.com"><i className="text-2xl fa-brands fa-google" role="button" aria-label="facebook" /></a></li>
               </ul>
-              <span className="text-sm font-bold text-green-600">
+              <span className="text-sm font-bold text-white">
                 copyright 2023 SEH-BIKES Plc
               </span>
             </div>

@@ -15,22 +15,20 @@ const Reservations = () => {
     }
   }, [isLoggedIn, navigate]);
 
-  
   const reservations = useSelector((state) => state.users.reservations);
   const twowheelers = useSelector((state) => state.twowheelers.twowheelers);
 
   if (isLoggedIn) {
-    
     return (
       <section className="reservations-page">
         <h1>My reservations</h1>
         {reservations.length !== 0 ? (
-          <>           
+          <>
             <table>
               <thead>
                 <tr>
                   <th>twowheeler Name</th>
-                  <th>City</th>                  
+                  <th>City</th>
                   <th>Date of Reservation</th>
                 </tr>
               </thead>
@@ -40,7 +38,7 @@ const Reservations = () => {
                     <td>
                       {twowheelers.find((twowheeler) => twowheeler.id === item.twowheeler_id).name}
                     </td>
-                    <td>{item.city}</td>                    
+                    <td>{item.city}</td>
                     <td>{item.date}</td>
                   </tr>
                 ))}
@@ -63,4 +61,4 @@ const Reservations = () => {
   );
 };
 
-export default Reservations;
+export default Reservations;

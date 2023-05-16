@@ -1,5 +1,4 @@
 import React from 'react';
-import '../components/style.css';
 
 export default function Reservations() {
   const reservationData = [{
@@ -54,11 +53,11 @@ export default function Reservations() {
   return (
     <>
 
-      <h1 className="pb-5 text-3xl font-bold text-green-400">Reservation List</h1>
+      <h1 className="pb-5 text-3xl font-bold text-green-400 text-center">Reservation List</h1>
       <div className="grid justify-center grid-cols-1 grid-rows-1 gap-4 md:grid-cols-3 md:grid-rows-auto">
         {reservationData.map((slideContent, index) => (
 
-          <div key={slideContent.id} virtualIndex={index} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div key={slideContent.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#" className="flex justify-center i-tems-center">
               <img className="pb-2 rounded-t-lg" src={slideContent.image} alt="product image" />
             </a>

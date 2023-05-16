@@ -46,44 +46,44 @@ function Sidebar() {
         } sm:translate-x-0`}
         aria-label="Sidebar"
       >
-        <div className="h-screen px-3 py-4 overflow-y-hidden bg-gray-200 dark:bg-gray-800">
+        <div className="h-screen px-3 py-4 overflow-y-hidden bg-gray-400 dark:bg-gray-800">
           <div>
             <img src="./images/black1.png" alt="SEH bikes" className="mb-9" />
           </div>
           <ul className="h-full space-y-1 font-medium ">
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link to="/">
                 <i className="fa-solid fa-motorcycle " />
                 <span className="ml-3">Bike Models</span>
               </Link>
             </li>
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link to="/addreservation">
                 <i className="fa-solid fa-shop" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Reservation</span>
                 <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-green-800 bg-green-200 rounded-full dark:bg-green-700 dark:text-green-300">Pro</span>
               </Link>
             </li>
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link to="/reservations">
                 <i className="fa-solid fa-inbox" />
                 <span className="flex-1 ml-3 whitespace-nowrap">My Reservations</span>
                 <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-green-100 rounded-full dark:bg-blue-900 dark:text-green-300">3</span>
               </Link>
             </li>
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link href="/">
                 <i className="fa-solid fa-plus" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Add Bikes</span>
               </Link>
             </li>
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link to="/signin">
                 <i className="fa-solid fa-arrow-right-to-bracket" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Sign In</span>
               </Link>
             </li>
-            <li className="p-3 font-bold border rounded-md hover:text-white hover:bg-green-500">
+            <li className="p-3 font-bold border-none rounded-md hover:text-white hover:bg-green-500">
               <Link to="/signup">
                 <i className="fa-solid fa-id-card" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
@@ -97,7 +97,7 @@ function Sidebar() {
                 <li className="w-9 h-9"><a href="www.amazin.com"><i className="text-2xl fa-brands fa-amazon" role="button" aria-label="facebook" /></a></li>
                 <li className="w-9 h-9"><a href="www.google.com"><i className="text-2xl fa-brands fa-google" role="button" aria-label="facebook" /></a></li>
               </ul>
-              <span className="text-sm font-bold text-yellow-400">
+              <span className="text-sm font-bold text-green-600">
                 copyright 2023 SEH-BIKES Plc
               </span>
             </div>

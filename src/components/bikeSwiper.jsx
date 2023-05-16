@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import SwiperCore, { Virtual, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMotorcycles } from '../redux/motorcycles/motorcycles';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 // Use SwiperCore and plugins
 SwiperCore.use([Virtual, Navigation]);
+
 export default function BikeSwiper() {
+  const dispatch = useDispatch();
   // Set swiper ref and slides state
   const [swiperRef, setSwiperRef] = useState(null);
-  const [slides, setSlides] = useState([]);
-  // Fetch data from API
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get('https://api.example.com/bike-models');
-        setSlides(result.data);
-        return result;
-      } catch (error) {
-        return error.message;
-      }
-    };
-    fetchData();
-  }, []);
+    dispatch(getMotorcycles());
+  }, [dispatch]);
+
+  const motorcycles = useSelector((state) => state.motorcycle);
+
   // Set breakpoints for swiper
   const breakpoints = {
     320: {
@@ -60,17 +56,18 @@ export default function BikeSwiper() {
         breakpoints={breakpoints}
         ref={swiperRef}
       >
-        {slides.map((slideContent, index) => (
+        {motorcycles.map((slideContent, index) => (
           <SwiperSlide key={slideContent.id} virtualIndex={index}>
             <div className="border-none swiper-slide-content rounded-xl">
               <img
-                src={slideContent.image_url}
+                src={slideContent.imageUrl}
                 className="border-2 rounded-md w-max"
-                alt={`Slide ${index + 1}`}
+                alt={`Slide ${index + 1}, ${slideContent.name}`}
               />
               <div className="swiper-slide-text ">
                 <div className="text-md">
                   <h1 className="pt-3 font-bold text-md">{slideContent.name}</h1>
+                  <h4 className="pt-3 font-bold text-sm">{slideContent.modelYear}</h4>
                   <p className="pb-3 text-sm">
                     {slideContent.description}
                   </p>

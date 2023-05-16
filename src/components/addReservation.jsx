@@ -35,6 +35,7 @@ const AddReservation = () => {
         <input type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
         <input placeholder="Duration" type="number" name="Duration" value={duration} onChange={(e) => setDuration(e.target.value)} />
         <input placeholder="City" type="text" name="City" value={city} onChange={(e) => setCity(e.target.value)} />
+        <button type="submit" name="Submit Reservation">Submit Reservation</button>
       </form>
     </div>
   );

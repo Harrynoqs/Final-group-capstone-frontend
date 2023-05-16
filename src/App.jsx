@@ -7,6 +7,7 @@ import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
 import LoadingIcon from './components/loadingIcon';
 import Login from './components/login';
+import Reservations from './components/reservations';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route index element={<BikeModel />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/reservations" element={<Reservations />} />
             </Routes>
           </Suspense>
         </div>

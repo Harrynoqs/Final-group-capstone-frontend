@@ -23,6 +23,7 @@ export const MotorcycleDetails = () => {
 
   return (
     <div>
+      <h3>Motorcycle details</h3>
       <section style={imageSectionStyles} />
       <section>
         <h5>{details.name}</h5>

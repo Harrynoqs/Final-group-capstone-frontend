@@ -5,7 +5,7 @@ import { Triangle } from 'react-loader-spinner';
 import Sidebar from './components/sidebar';
 // import Reservations from './components/reservations';
 // import AddReservation from './components/addReservation';
-import Login from './components/login';
+// import Login from './components/login';
 import Bikedetails from './components/BikeDetails';
 // App component
 function App() {
@@ -38,7 +38,24 @@ function App() {
             ) : (
               // Show reservations component if loading is false
               <Routes>
-                <Route index element={<Bikedetails />} />
+                <Route
+                  index
+                  element={(
+                    <Bikedetails
+                      bikeData={{
+                        name: 'SEH-BIKE 976',
+                        price: 4356,
+                        financeFee: 768,
+                        purchaseFee: 2768,
+                        totalAmount: 9768,
+                        duration: '45Hr',
+                        image: 'https://aboutmansmedia.s3.eu-west-2.amazonaws.com/wp-content/uploads/2019/12/21213502/Best-motorcycles-3.jpg',
+                        imagecolor: 'https://podprint.com/wp-content/uploads/2020/08/ColorWheel_Blank.png',
+                        configurationOptions: ['Option 1', 'Option 2', 'Option 3'],
+                      }}
+                    />
+)}
+                />
               </Routes>
             )
           }

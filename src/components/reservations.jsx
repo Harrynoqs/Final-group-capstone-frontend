@@ -58,7 +58,6 @@ export default function Reservations() {
   ];
   return (
     <>
-
       <h1 className="pb-5 text-3xl font-bold text-center text-green-400">Reservation List</h1>
       <div className="grid justify-center grid-cols-1 grid-rows-1 gap-4 md:grid-cols-3 md:grid-rows-auto">
         {reservationData.map((slideContent) => (

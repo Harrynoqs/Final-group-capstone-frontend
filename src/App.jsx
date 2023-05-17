@@ -3,7 +3,11 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Triangle } from 'react-loader-spinner';
 import Sidebar from './components/sidebar';
-import Reservations from './components/reservations';
+import { MotorcycleDetails } from './components/motorcycleDetails';
+
+// import Reservations from './components/reservations';
+// import AddReservation from './components/addReservation';
+// import Login from './components/login';
 // App component
 function App() {
   // State to track loading status
@@ -35,7 +39,7 @@ function App() {
             ) : (
               // Show reservations component if loading is false
               <Routes>
-                <Route index element={<Reservations />} />
+                <Route element={<MotorcycleDetails />} />
               </Routes>
             )
           }

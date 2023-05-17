@@ -28,18 +28,64 @@ body {
   justify-content: space-between;
 }
 
-aside {
+nav {
   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-@media only screen and (max-width: 650px) {
+aside {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 275px;
+  height: 100%;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.aside-links {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media only screen and (max-width: 1224px) {
   aside {
-    display: none !important;
+    width: 200px;
   }
+}
+
+.hamburger-button {
+  display: none;
+}
+
+.hamburger-button .line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-button .line:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.hamburger-button.open .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-button.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.open .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 .copyright-text {
   font-size: 11px;
+  margin-bottom: 20px;
 }
 
 .swiper {
@@ -78,11 +124,52 @@ aside {
 }
 
 .swiper-container {
-  width: 100%;
+  width: 80%;
   padding: 2rem;
   max-height: 80vh;  
   min-height: 0;
   min-width: 0;
+}
+
+@media only screen and (max-width: 874px) {
+  .swiper-container  {
+    width: 100%;
+  }
+
+  nav {
+    height: 5vh;
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+  }
+
+  aside {
+    transform: translateX(-100%);
+    background-color: #ffffff;
+  }
+
+  .hamburger-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    color: #22c55e;
+    /* padding-left: 1rem; */
+    z-index: 50;
+    transition: 0.5s ease;
+  }
+
+  .aside-img {
+    visibility: hidden;
+  }
+
+  .main-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+  }
 }
 
 .swiper-wrapper {
@@ -128,6 +215,7 @@ aside {
   padding: 0.5rem;
   align-items: center;
   justify-content: center;
+  width: 75%;
 }
 
 .form-container label {
@@ -168,4 +256,151 @@ button[type="submit"] {
   justify-content: flex-start;
 }
 
+@media only screen and (max-width: 874px) {
+  .form-container {
+    width: 100%;
+    margin-top: 5rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
 
+  form {
+    width: 65%;
+  }
+
+  input[type="text"], 
+  input[type="integer"], 
+  input[type="url"], 
+  input[type="number"] {
+    width: 100%;
+  }
+}
+
+.details-container {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.details-image {
+  width: 65%;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+
+.details-info {
+  margin: 2rem;
+  text-align: right;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-name {
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
+.details-description {
+  padding-right: 10px;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.details-list li {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-list li:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.details-link-container {
+  padding-top: 3rem;
+}
+
+.details-link {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-right: 15px;
+}
+
+.reserve-btn-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.details-reserve-btn {
+  padding: 18px 25px;
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 600;
+  background-color: #22c55e;
+  width: 175px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.details-reserve-btn > button {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  text-align: center;
+  align-items: center;
+}
+
+.reserve-text {
+  margin-bottom: -5px;
+}
+
+@media only screen and (max-width: 980px) {
+  .details-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    height: auto;
+    max-height: 100%;
+    margin-right: 2rem;
+  }
+
+  .details-image {
+    height: 70vh;
+    width: 100%;
+  }
+
+  .details-info {
+    width: 100%;
+  }
+
+  .details-link-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .details-reserve-btn {
+    padding: 15px 20px;
+  }
+}

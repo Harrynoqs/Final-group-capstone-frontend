@@ -57,6 +57,7 @@ export const motorcycleSlice = createSlice({
         const ids = Object.keys(action.payload);
         ids.forEach((id) => {
           const motorcycle = {
+            id: action.payload[id].id,
             name: action.payload[id].name,
             description: action.payload[id].description,
             imageUrl: action.payload[id].image_url,

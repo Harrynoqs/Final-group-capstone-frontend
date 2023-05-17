@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Link } from 'react-router-dom';
 
 // Use SwiperCore and plugins
 SwiperCore.use([Virtual, Navigation]);
@@ -21,7 +22,6 @@ export default function BikeSwiper() {
   }, [dispatch]);
 
   const motorcycles = useSelector((state) => state.motorcycle);
-  console.log(motorcycles);
 
   // Set breakpoints for swiper
   const breakpoints = {
@@ -57,7 +57,8 @@ export default function BikeSwiper() {
         breakpoints={breakpoints}
       >
         {motorcycles.map((slideContent, index) => (
-          <SwiperSlide key={slideContent.id}>
+          <SwiperSlide key={index}>
+            <Link to={`/motorcycles/${slideContent.id}`} state={slideContent}>
             <div className="border-none swiper-slide-content rounded-xl">
               <img
                 src={slideContent.imageUrl}
@@ -101,6 +102,7 @@ export default function BikeSwiper() {
                 </ul>
               </div>
             </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

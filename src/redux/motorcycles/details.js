@@ -16,6 +16,12 @@ export const getSingleMotorcycle = createAsyncThunk(
 export const detailsSlice = createSlice({
   name: 'motorcycle-details',
   initialState: [],
+  reducers: {
+    resetState: (state) => {
+        state.splice(0, state.length);
+        return state;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getSingleMotorcycle.fulfilled, (state, { payload }) => {
@@ -24,5 +30,6 @@ export const detailsSlice = createSlice({
   },
 });
 
+export const { resetState } = detailsSlice.actions;
 const { reducer } = detailsSlice;
 export default reducer;

@@ -6,6 +6,7 @@ import Sidebar from './components/sidebar';
 // import Reservations from './components/reservations';
 // import AddReservation from './components/addReservation';
 import Login from './components/login';
+import Bikedetails from './components/BikeDetails';
 // App component
 function App() {
   // State to track loading status
@@ -37,7 +38,7 @@ function App() {
             ) : (
               // Show reservations component if loading is false
               <Routes>
-                <Route index element={<Login />} />
+                <Route index element={<Bikedetails />} />
               </Routes>
             )
           }

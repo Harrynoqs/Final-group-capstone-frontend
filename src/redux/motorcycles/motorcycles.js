@@ -10,8 +10,9 @@ export const addMotorcycle = createAsyncThunk(
     } = motorcycle;
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_ENDPOINT}/twowheelers/new`,
+        `${import.meta.env.VITE_API_ENDPOINT}/twowheelers`,
         {
+          twowheeler: {
           name,
           description,
           image_url: imageUrl,
@@ -20,6 +21,10 @@ export const addMotorcycle = createAsyncThunk(
           engine_type: engineType,
           fuel_type: fuelType,
         },
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }
       );
       return motorcycle;
     } catch (err) {

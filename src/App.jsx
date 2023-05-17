@@ -7,17 +7,21 @@ import BikeModel from './pages/bikeModel';
 import Sidebar from './components/sidebar';
 import LoadingIcon from './components/loadingIcon';
 import Login from './components/login';
+import AddMotorcycle from './components/addMotorcycle';
+import AddReservation from './components/addReservation';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen sm:flex-row">
+      <div className="flex flex-row justify-center main-container">
         <Sidebar />
-        <div className="flex-1 border-2 border-gray-200 border-dashed rounded-lg md:p-4 md:ml-64 dark:border-gray-700">
+        <div className="swiper-container">
           <Suspense fallback={<LoadingIcon />}>
             <Routes>
               <Route index element={<BikeModel />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/add-motorcycle" element={<AddMotorcycle />} />
+              <Route path="/add-reservations" element={<AddReservation />} />
             </Routes>
           </Suspense>
         </div>

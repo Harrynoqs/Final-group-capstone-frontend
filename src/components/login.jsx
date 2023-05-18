@@ -13,9 +13,9 @@ const Login = () => {
 
     dispatch(loginUser(username));
     setNotice(`Logged in as: ${username}`);
-    setTimeout(() => {
-      window.location.href = '/';
-    }, 300);
+    // setTimeout(() => {
+    //   window.location.href = '/';
+    // }, 300);
   };
 
   const handleRegister = (e) => {

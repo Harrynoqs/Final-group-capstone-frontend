@@ -44,7 +44,7 @@ export const usersSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.user.push(payload);
-      });
+      })
   },
 });
 

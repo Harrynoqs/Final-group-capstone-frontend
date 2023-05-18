@@ -233,7 +233,9 @@ form {
 input[type="text"], 
 input[type="integer"], 
 input[type="url"], 
-input[type="number"] {
+input[type="number"],
+select,
+input[type="date"] {
   padding: 1rem;
   border: none;
   border-bottom: 1px solid #acacac;
@@ -272,13 +274,15 @@ button[type="submit"] {
   input[type="text"], 
   input[type="integer"], 
   input[type="url"], 
-  input[type="number"] {
+  input[type="number"],
+  select,
+  input[type="date"] {
     width: 100%;
   }
 }
 
 .details-container {
-  width: 100%;
+  width: 80%;
   height: 75vh;
   display: flex;
   flex-direction: row;
@@ -351,7 +355,6 @@ button[type="submit"] {
 }
 
 .details-reserve-btn {
-  padding: 18px 25px;
   color: #ffffff;
   font-size: 19px;
   font-weight: 600;
@@ -364,16 +367,26 @@ button[type="submit"] {
   margin-right: 15px;
 }
 
-.details-reserve-btn > button {
+.details-reserve-btn > a {
   display: flex;
   flex-direction: row;
   gap: 25px;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 18px 25px;
+}
+
+.details-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .reserve-text {
-  margin-bottom: -5px;
+  margin-bottom: -20px;
 }
 
 @media only screen and (max-width: 980px) {
@@ -400,7 +413,11 @@ button[type="submit"] {
     padding-bottom: 1rem;
   }
 
-  .details-reserve-btn {
+  .details-reserve-btn > a {
     padding: 15px 20px;
   }
+}
+
+.default-dropdown {
+  color: gray;
 }

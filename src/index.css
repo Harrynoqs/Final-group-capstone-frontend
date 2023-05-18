@@ -13,12 +13,85 @@ body {
 }
 
 body {
-  background: #eee;
+  background: #fff;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
+}
+
+.main-container {
+  height: 100vh;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+aside {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 275px;
+  height: 100%;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.aside-links {
+  justify-content: center;
+  align-items: flex-start;
+  transition: 0.8s ease;
+  transform: translateX(14%);
+}
+
+@media only screen and (max-width: 1224px) {
+  aside {
+    width: 200px;
+  }
+
+  .aside-links {
+    transform: translateX(0);
+  }
+}
+
+.hamburger-button {
+  display: none;
+}
+
+.hamburger-button .line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger-button .line:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.hamburger-button.open .line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-button.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.open .line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.copyright-text {
+  font-size: 11px;
+  margin-bottom: 20px;
 }
 
 .swiper {
@@ -34,8 +107,10 @@ body {
   border: none;
   border-radius: 10px;
   padding: 10px 0;
-
-  /* Center slide text vertically */
+  width: auto;
+  flex-shrink: 0;
+  height: 100%;
+  max-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,9 +118,70 @@ body {
 
 .swiper-slide img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 40vh;
   object-fit: cover;
+  border-radius: 1rem;
+}
+
+.main {
+  min-width: 0;
+}
+
+.swiper-container {
+  width: 80%;
+  padding: 2rem;
+  max-height: 80vh;
+  min-height: 0;
+  min-width: 0;
+}
+
+@media only screen and (max-width: 874px) {
+  .swiper-container {
+    width: 100%;
+  }
+
+  nav {
+    height: 5vh;
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+  }
+
+  aside {
+    transform: translateX(-100%);
+    background-color: #fff;
+  }
+
+  .hamburger-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    color: #22c55e;
+
+    /* padding-left: 1rem; */
+    z-index: 50;
+    transition: 0.5s ease;
+  }
+
+  .aside-img {
+    visibility: hidden;
+  }
+
+  .main-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+  }
+}
+
+.swiper-wrapper {
+  max-height: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .swiper-pagination {
@@ -67,4 +203,333 @@ body {
   border-radius: 4px;
   margin: 0 10px;
   font-size: 13px;
+}
+
+.side-links {
+  width: 100%;
+}
+
+.side-links > a {
+  width: 100%;
+  height: 100%;
+  display: block !important;
+}
+
+.form-container,
+.form-container-login {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.form-container-login {
+  width: 100%;
+}
+
+.form-container label {
+  padding: 0.8rem 1rem 0;
+  color: #9ca3af;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: -3rem;
+}
+
+input[type="text"],
+input[type="integer"],
+input[type="url"],
+input[type="number"],
+input[type="username"],
+select,
+input[type="date"] {
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid #acacac;
+  width: 65%;
+}
+
+input[type="username"] {
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.form-container-login form {
+  align-items: center;
+}
+
+button[type="submit"],
+.login-btn {
+  padding: 0.8rem 1.4rem;
+  border-radius: 20px;
+  margin: 0;
+  background: #22c55e;
+  color: #fff;
+}
+
+.login-btn {
+  margin-bottom: 1rem;
+}
+
+.sign-up {
+  transition: 0.1s ease;
+}
+
+.sign-up:hover {
+  color: #22c55e;
+}
+
+.btn-group {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 874px) {
+  .form-container,
+  .form-container-login {
+    width: 100%;
+    margin-top: 5rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  form {
+    width: 65%;
+  }
+
+  input[type="text"],
+  input[type="integer"],
+  input[type="url"],
+  input[type="number"],
+  input[type="username"],
+  select,
+  input[type="date"] {
+    width: 100%;
+  }
+}
+
+.details-container {
+  width: 80%;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.details-image {
+  width: 65%;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+
+.details-info {
+  margin: 2rem;
+  text-align: right;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-name {
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-right: 10px;
+}
+
+.details-description {
+  padding-right: 10px;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.details-list li {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-list li:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.details-link-container {
+  padding-top: 3rem;
+}
+
+.details-link {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-right: 15px;
+}
+
+.reserve-btn-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.details-reserve-btn {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  background-color: #22c55e;
+  width: 175px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.details-reserve-btn > a {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 18px 25px;
+}
+
+.details-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.reserve-text {
+  margin-bottom: -20px;
+}
+
+@media only screen and (max-width: 980px) {
+  .details-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    height: auto;
+    max-height: 100%;
+    margin-right: 2rem;
+  }
+
+  .details-image {
+    height: 70vh;
+    width: 100%;
+  }
+
+  .details-info {
+    width: 100%;
+  }
+
+  .details-link-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .details-reserve-btn > a {
+    padding: 15px 20px;
+  }
+}
+
+.reservation-form {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.reservations-form > input,
+.reservations-form > select {
+  background-color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+.reservations-form::placeholder {
+  color: black !important;
+  opacity: 1;
+}
+
+.default-dropdown {
+  color: gray;
+}
+
+#message {
+  color: #f85353;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 874px) {
+  .reservations-form {
+    padding: 0;
+    width: 100%;
+  }
+
+  .reservation-form {
+    width: 100%;
+  }
+}
+
+.delete-bikes {
+  width: 80%;
+  padding: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 90vh;
+}
+
+.delete-heading {
+  padding-bottom: 2rem;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.delete-bikes-container {
+  width: 100%;
+}
+
+.bikes-delete-info {
+  justify-content: space-between;
+  transition: 0.1s ease-in;
+}
+
+.bikes-delete-info:hover {
+  background-color: #5eaf7a;
+}
+
+.removed-status {
+  text-transform: uppercase;
+  font-size: 12px;
 }

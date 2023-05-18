@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-tailwind/react';
 import ReactDOM from 'react-dom/client';
@@ -7,9 +8,11 @@ import './index.css';
 import store from './redux/configureStore';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </Provider>
+  </BrowserRouter>,
 );

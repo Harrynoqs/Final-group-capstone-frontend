@@ -5,8 +5,12 @@ import BikeSwiper from '../components/bikeSwiper';
 
 export default function BikeModel() {
   return (
-    <div className="flex flex-col items-center justify-center pt-5">
-      <BikeSwiper />
-    </div>
+    <>
+      <div className="swiper-container">
+        <div className="flex flex-col items-center justify-center pt-5">
+          <BikeSwiper />
+        </div>
+      </div>
+    </>
   );
 }

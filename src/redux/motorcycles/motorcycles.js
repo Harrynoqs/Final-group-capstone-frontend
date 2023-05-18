@@ -10,15 +10,20 @@ export const addMotorcycle = createAsyncThunk(
     } = motorcycle;
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_ENDPOINT}/twowheelers/new`,
+        `${import.meta.env.VITE_API_ENDPOINT}/twowheelers`,
         {
-          name,
-          description,
-          image_url: imageUrl,
-          price,
-          model_year: modelYear,
-          engine_type: engineType,
-          fuel_type: fuelType,
+          twowheeler: {
+            name,
+            description,
+            image_url: imageUrl,
+            price,
+            model_year: modelYear,
+            engine_type: engineType,
+            fuel_type: fuelType,
+          },
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
         },
       );
       return motorcycle;
@@ -40,9 +45,23 @@ export const getMotorcycles = createAsyncThunk(
   },
 );
 
+export const removeSingleMotorcycle = createAsyncThunk(
+  'motorcycles/removeSingleMotorcycle',
+  async (id) => {
+    await axios.delete(`${import.meta.env.VITE_API_ENDPOINT}/twowheelers/${id}`);
+
+    return { id };
+  },
+);
+
 export const motorcycleSlice = createSlice({
   name: 'motorcycle',
   initialState: [],
+  reducers: {
+    clearMotorcycles: (state) => {
+      state.length = 0;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(addMotorcycle.fulfilled, (state, { payload }) => {
@@ -52,6 +71,7 @@ export const motorcycleSlice = createSlice({
         const ids = Object.keys(action.payload);
         ids.forEach((id) => {
           const motorcycle = {
+            id: action.payload[id].id,
             name: action.payload[id].name,
             description: action.payload[id].description,
             imageUrl: action.payload[id].image_url,
@@ -62,9 +82,14 @@ export const motorcycleSlice = createSlice({
           };
           state.push(motorcycle);
         });
+      })
+      .addCase(removeSingleMotorcycle.fulfilled, (state, action) => {
+        const filtered = state.filter(({ id }) => id !== action.payload.id);
+        return filtered;
       });
   },
 });
 
 const { reducer } = motorcycleSlice;
+export const { clearMotorcycles } = motorcycleSlice.actions;
 export default reducer;

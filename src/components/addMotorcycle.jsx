@@ -34,6 +34,7 @@ const AddMotorcycle = () => {
     setModelYear(0);
     setEngineType('');
     setFuelType('');
+    window.location.href = '/';
   };
 
   return (

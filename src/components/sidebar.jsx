@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { logout } from '../config';
 // conv to arrow
 // pass props to component
 // render component in main page and details pages
@@ -11,6 +12,10 @@ function Sidebar() {
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const handleLogout = () => {
+    logout();
+  }
 
   return (
     <nav>
@@ -64,6 +69,12 @@ function Sidebar() {
                 <i className="fa-solid fa-trash" />
                 <span className="flex-1 ml-3 whitespace-nowrap">Delete Bike</span>
               </Link>
+            </li>
+            <li className="font-bold rounded-md hover:text-white hover:bg-green-400 side-links" onClick={() => handleLogout()}>
+                <a className="p-3">
+                  <i className="fa-solid fa-sign-out fa-lg" />
+                  <span className="flex-1 ml-3 whitespace-nowrap">Log out</span>
+                </a>
             </li>
           </ul>
           <div className="text-center aside-links flex flex-col">

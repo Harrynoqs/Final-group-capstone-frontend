@@ -215,13 +215,18 @@ aside {
   display: block !important;
 }
 
-.form-container {
+.form-container, .form-container-login {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
   align-items: center;
   justify-content: center;
   width: 75%;
+}
+
+
+.form-container-login {
+  width: 100%;
 }
 
 .form-container label {
@@ -240,6 +245,7 @@ input[type="text"],
 input[type="integer"], 
 input[type="url"], 
 input[type="number"],
+input[type="username"],
 select,
 input[type="date"] {
   padding: 1rem;
@@ -248,12 +254,33 @@ input[type="date"] {
   width: 65%;
 }
 
-button[type="submit"] {
+input[type="username"] {
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.form-container-login form {
+  align-items: center;
+}
+
+button[type="submit"], .login-btn {
   padding: 0.8rem 1.4rem;
   border-radius: 20px;
   margin: 0;
   background: #22c55e;
   color: #ffffff;
+}
+
+.login-btn {
+  margin-bottom: 1rem;
+}
+
+.sign-up {
+  transition: 0.1s ease;
+}
+
+.sign-up:hover {
+  color: #22c55e;
 }
 
 .btn-group {
@@ -265,7 +292,7 @@ button[type="submit"] {
 }
 
 @media only screen and (max-width: 874px) {
-  .form-container {
+  .form-container, .form-container-login {
     width: 100%;
     margin-top: 5rem;
     padding: 2rem;
@@ -281,6 +308,7 @@ button[type="submit"] {
   input[type="integer"], 
   input[type="url"], 
   input[type="number"],
+  input[type="username"],
   select,
   input[type="date"] {
     width: 100%;

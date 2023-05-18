@@ -15,14 +15,4 @@ const store = configureStore({
   },
 });
 
-const handleChange = () => {
-  let nextState = store.getState().user.user;
-  const serializedState = JSON.stringify(nextState);
-  localStorage.setItem('state', serializedState);
-};
-
-export const unsubscribe = store.subscribe(() => {
-  handleChange();
-});
-
 export default store;

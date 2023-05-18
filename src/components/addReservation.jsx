@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../redux/reservations/reservations';
 import { fetchUsers } from '../redux/users/fetch';
-import { getMotorcycles } from '../redux/motorcycles/motorcycles';
+import { getMotorcycles, clearMotorcycles } from '../redux/motorcycles/motorcycles';
 
 const AddReservation = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const AddReservation = () => {
   const users = useSelector((state) => state.allUsers[0]);
 
   useEffect(() => {
-    setUser(users?.find((user) => user.name === JSON.parse(localStorage.getItem('state'))[0]) || 0)
+    setUser(users?.find((user) => user.name === JSON.parse(localStorage.getItem('state'))) || 0)
   }, [users]);
 
   console.log(user);
@@ -52,6 +52,7 @@ const AddReservation = () => {
 
   useEffect(() => {
     if (motorcycleId === '') {
+      dispatch(clearMotorcycles())
       dispatch(getMotorcycles());
     }
   }, [dispatch]);

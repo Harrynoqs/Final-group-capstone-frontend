@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { getReservations } from "../redux/reservations/reservations";
-import { fetchUsers } from "../redux/users/fetch";
-import { useDispatch, useSelector } from "react-redux";
-import { getMotorcycles } from "../redux/motorcycles/motorcycles";
-import Reserve from "./reserve";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getReservations } from '../redux/reservations/reservations';
+import { fetchUsers } from '../redux/users/fetch';
+import { getMotorcycles } from '../redux/motorcycles/motorcycles';
+import Reserve from './reserve';
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -18,12 +18,8 @@ const Reservations = () => {
   const users = useSelector((state) => state.allUsers[0]);
   const user = users?.find((user) => user.name === JSON.parse(localStorage.getItem('state'))) || 0;
   const userReserves = reservations?.filter((reserve) => reserve.user_id === user?.id);
-  console.log(userReserves);
 
-  const motorcycles = useSelector((state) => state.motorcycle);
-  console.log(motorcycles);
-
-  if (user && userReserves.length > 0) {
+  if (user && userReserves?.length > 0) {
     return (
       <div className="my-reservations-container">
         <h1 className="text-center text-uppercase">My Reservations</h1>

@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {
   Routes, Route, useLocation,
@@ -11,6 +11,7 @@ import AddReservation from './components/addReservation';
 import { MotorcycleDetails } from './components/motorcycleDetails';
 import DeleteBike from './components/deleteBike';
 import Reservations from './components/reservations';
+
 const isLogged = JSON.parse(localStorage.getItem('state'))?.length > 0 || false;
 
 function App() {
@@ -25,15 +26,15 @@ function App() {
   return (
     <div className="flex flex-row justify-center main-container">
       {showSidebar && <Sidebar />}
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route index element={<BikeModel />} />
-          <Route path="/motorcycles/:id" element={<MotorcycleDetails />} />
-          <Route path="/delete-motorcycle" element={<DeleteBike />} />
-          <Route path="/add-motorcycle" element={<AddMotorcycle />} />
-          <Route path="/add-reservations" element={<AddReservation />} />
-          <Route path="/reservations" element={<Reservations />} />
-        </Routes>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route index element={<BikeModel />} />
+        <Route path="/motorcycles/:id" element={<MotorcycleDetails />} />
+        <Route path="/delete-motorcycle" element={<DeleteBike />} />
+        <Route path="/add-motorcycle" element={<AddMotorcycle />} />
+        <Route path="/add-reservations" element={<AddReservation />} />
+        <Route path="/reservations" element={<Reservations />} />
+      </Routes>
     </div>
   );
 }

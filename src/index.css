@@ -13,7 +13,7 @@ body {
 }
 
 body {
-  background: #ffffff;
+  background: #fff;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
@@ -48,7 +48,7 @@ aside {
 .aside-links {
   justify-content: center;
   align-items: flex-start;
-  transition: 0.8 ease;
+  transition: 0.8s ease;
   transform: translateX(14%);
 }
 
@@ -109,7 +109,6 @@ aside {
   padding: 10px 0;
   width: auto;
   flex-shrink: 0;
-  display: block;
   height: 100%;
   max-height: 100%;
   display: flex;
@@ -125,20 +124,20 @@ aside {
   border-radius: 1rem;
 }
 
-.main { 
+.main {
   min-width: 0;
 }
 
 .swiper-container {
   width: 80%;
   padding: 2rem;
-  max-height: 80vh;  
+  max-height: 80vh;
   min-height: 0;
   min-width: 0;
 }
 
 @media only screen and (max-width: 874px) {
-  .swiper-container  {
+  .swiper-container {
     width: 100%;
   }
 
@@ -150,7 +149,7 @@ aside {
 
   aside {
     transform: translateX(-100%);
-    background-color: #ffffff;
+    background-color: #fff;
   }
 
   .hamburger-button {
@@ -162,6 +161,7 @@ aside {
     height: 20px;
     cursor: pointer;
     color: #22c55e;
+
     /* padding-left: 1rem; */
     z-index: 50;
     transition: 0.5s ease;
@@ -215,7 +215,8 @@ aside {
   display: block !important;
 }
 
-.form-container, .form-container-login {
+.form-container,
+.form-container-login {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -223,7 +224,6 @@ aside {
   justify-content: center;
   width: 75%;
 }
-
 
 .form-container-login {
   width: 100%;
@@ -241,9 +241,9 @@ form {
   margin-top: -3rem;
 }
 
-input[type="text"], 
-input[type="integer"], 
-input[type="url"], 
+input[type="text"],
+input[type="integer"],
+input[type="url"],
 input[type="number"],
 input[type="username"],
 select,
@@ -263,12 +263,13 @@ input[type="username"] {
   align-items: center;
 }
 
-button[type="submit"], .login-btn {
+button[type="submit"],
+.login-btn {
   padding: 0.8rem 1.4rem;
   border-radius: 20px;
   margin: 0;
   background: #22c55e;
-  color: #ffffff;
+  color: #fff;
 }
 
 .login-btn {
@@ -292,7 +293,8 @@ button[type="submit"], .login-btn {
 }
 
 @media only screen and (max-width: 874px) {
-  .form-container, .form-container-login {
+  .form-container,
+  .form-container-login {
     width: 100%;
     margin-top: 5rem;
     padding: 2rem;
@@ -304,9 +306,9 @@ button[type="submit"], .login-btn {
     width: 65%;
   }
 
-  input[type="text"], 
-  input[type="integer"], 
-  input[type="url"], 
+  input[type="text"],
+  input[type="integer"],
+  input[type="url"],
   input[type="number"],
   input[type="username"],
   select,
@@ -389,7 +391,7 @@ button[type="submit"], .login-btn {
 }
 
 .details-reserve-btn {
-  color: #ffffff;
+  color: #fff;
   font-size: 19px;
   font-weight: 600;
   background-color: #22c55e;
@@ -465,7 +467,8 @@ button[type="submit"], .login-btn {
   background-repeat: no-repeat;
 }
 
-.reservations-form > input,.reservations-form > select {
+.reservations-form > input,
+.reservations-form > select {
   background-color: rgba(255, 255, 255, 0.65);
   font-weight: 600;
 }
@@ -475,32 +478,13 @@ button[type="submit"], .login-btn {
   opacity: 1;
 }
 
-.reservations-form:-moz-placeholder {
-  color: black !important;
-  opacity: 1;
-}
-
-.reservations-form::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: black !important;
-  opacity: 1;
-}
-
-.reservations-form:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: black;
-  opacity: 1;
-}
-
-.reservations-form::-ms-input-placeholder { /* Microsoft Edge */
-  color: black;
-  opacity: 1;
-}
-
 .default-dropdown {
   color: gray;
 }
 
 #message {
   color: #f85353;
+  margin-bottom: 1rem;
 }
 
 .error-message {

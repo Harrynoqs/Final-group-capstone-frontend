@@ -4,7 +4,7 @@ import { login } from '../../config';
 
 export const loginUser = createAsyncThunk(
   'users/login',
-  async (name, {rejectWithValue}) => {
+  async (name, { rejectWithValue }) => {
     try {
       await axios.post(
         `${import.meta.env.VITE_API_ENDPOINT}/login`,
@@ -14,6 +14,7 @@ export const loginUser = createAsyncThunk(
       );
       login(name);
       window.location.href = '/';
+      return name;
     } catch (err) {
       return rejectWithValue(err.response.data.message);
     }
@@ -25,9 +26,9 @@ export const registerUser = createAsyncThunk(
   async (name) => {
     await axios.post(
       `${import.meta.env.VITE_API_ENDPOINT}/register`,
-        {
-          name,
-        },
+      {
+        name,
+      },
     );
     login(name);
     window.location.href = '/';
@@ -55,7 +56,7 @@ export const usersSlice = createSlice({
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.user.push(payload);
-      })
+      });
   },
 });
 

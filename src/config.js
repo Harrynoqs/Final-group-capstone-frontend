@@ -1,5 +1,5 @@
 const login = (username) => {
-    localStorage.setItem('state', [JSON.stringify(username)]);
+  localStorage.setItem('state', [JSON.stringify(username)]);
 };
 
 const logout = () => {

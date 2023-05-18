@@ -13,18 +13,18 @@ export const addMotorcycle = createAsyncThunk(
         `${import.meta.env.VITE_API_ENDPOINT}/twowheelers`,
         {
           twowheeler: {
-          name,
-          description,
-          image_url: imageUrl,
-          price,
-          model_year: modelYear,
-          engine_type: engineType,
-          fuel_type: fuelType,
+            name,
+            description,
+            image_url: imageUrl,
+            price,
+            model_year: modelYear,
+            engine_type: engineType,
+            fuel_type: fuelType,
+          },
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
         },
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      }
       );
       return motorcycle;
     } catch (err) {

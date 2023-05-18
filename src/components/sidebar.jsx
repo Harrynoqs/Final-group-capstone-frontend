@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../config';
 // conv to arrow
@@ -15,18 +14,19 @@ function Sidebar() {
 
   const handleLogout = () => {
     logout();
-  }
+  };
 
   return (
     <nav>
       <button
-        className={`hamburger-button ${isMobileMenuOpen ? 'open': ''}`}
+        type="button"
+        className={`hamburger-button ${isMobileMenuOpen ? 'open' : ''}`}
         onClick={handleMobileMenuToggle}
         aria-label="Toggle mobile menu"
       >
-       <div className="line"></div>
-       <div className="line"></div>
-       <div className="line"></div>
+        <div className="line" />
+        <div className="line" />
+        <div className="line" />
       </button>
       <aside
         id="default-sidebar"
@@ -70,25 +70,27 @@ function Sidebar() {
                 <span className="flex-1 ml-3 whitespace-nowrap">Delete Bike</span>
               </Link>
             </li>
-            <li className="font-bold rounded-md hover:text-white hover:bg-green-400 side-links" onClick={() => handleLogout()}>
-                <a className="p-3">
+            <li className="flex font-bold rounded-md hover:text-white hover:bg-green-400 side-links">
+              <button type="button" className="logout-btn" onClick={() => handleLogout()}>
+                <div className="p-3">
                   <i className="fa-solid fa-sign-out fa-lg" />
                   <span className="flex-1 ml-3 whitespace-nowrap">Log out</span>
-                </a>
+                </div>
+              </button>
             </li>
           </ul>
           <div className="text-center aside-links flex flex-col">
-              <ul className="relative flex flex-row gap-2 left-2 align-center justify-center">
-                <li className="w-6 h-9"><a href="www.facebook.com"><i className="text-xl fa-brands fa-facebook" role="button" aria-label="facebook" /></a></li>
-                <li className="w-6 h-9"><a href="www.linkedin.com"><i className="text-xl fa-brands fa-vimeo" role="button" aria-label="facebook" /></a></li>
-                <li className="w-6 h-9"><a href="www.twitter.com"><i className="text-xl fa-brands fa-twitter" role="button" aria-label="facebook" /></a></li>
-                <li className="w-6 h-9"><a href="www.amazin.com"><i className="text-xl fa-brands fa-amazon" role="button" aria-label="facebook" /></a></li>
-                <li className="w-6 h-9"><a href="www.google.com"><i className="text-xl fa-brands fa-pinterest" role="button" aria-label="facebook" /></a></li>
-              </ul>
-              <span className="copyright-text">
-                Copyright 2023 SEH-BIKES PLC
-              </span>
-           </div>
+            <ul className="relative flex flex-row gap-2 left-2 align-center justify-center">
+              <li className="w-6 h-9"><a href="www.facebook.com"><i className="text-xl fa-brands fa-facebook" role="button" aria-label="facebook" /></a></li>
+              <li className="w-6 h-9"><a href="www.linkedin.com"><i className="text-xl fa-brands fa-vimeo" role="button" aria-label="facebook" /></a></li>
+              <li className="w-6 h-9"><a href="www.twitter.com"><i className="text-xl fa-brands fa-twitter" role="button" aria-label="facebook" /></a></li>
+              <li className="w-6 h-9"><a href="www.amazin.com"><i className="text-xl fa-brands fa-amazon" role="button" aria-label="facebook" /></a></li>
+              <li className="w-6 h-9"><a href="www.google.com"><i className="text-xl fa-brands fa-pinterest" role="button" aria-label="facebook" /></a></li>
+            </ul>
+            <span className="copyright-text">
+              Copyright 2023 SEH-BIKES PLC
+            </span>
+          </div>
         </div>
       </aside>
     </nav>

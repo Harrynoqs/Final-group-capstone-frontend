@@ -18,8 +18,8 @@ export const detailsSlice = createSlice({
   initialState: [],
   reducers: {
     resetState: (state) => {
-        state.splice(0, state.length);
-        return state;
+      state.splice(0, state.length);
+      return state;
     },
   },
   extraReducers(builder) {

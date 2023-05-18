@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 import { getSingleMotorcycle, resetState } from '../redux/motorcycles/details';
@@ -8,7 +8,6 @@ export const MotorcycleDetails = () => {
   const location = useLocation();
 
   const id = location.state?.id;
-  console.log(id);
 
   useEffect(() => {
     dispatch(resetState());
@@ -18,8 +17,7 @@ export const MotorcycleDetails = () => {
     dispatch(getSingleMotorcycle(id));
   }, [dispatch, id]);
 
-  let details = useSelector((state) => state.motorcycleDetails[0]);
-  console.log(details);
+  const details = useSelector((state) => state.motorcycleDetails[0]);
 
   const imageSectionStyles = {
     backgroundImage: `linear-gradient(
@@ -62,16 +60,19 @@ export const MotorcycleDetails = () => {
               </span>
             </li>
           </ul>
-          <div className='details-link-container'>
-            <Link className="details-link" to="/">discover more models <span>➤</span></Link>
+          <div className="details-link-container">
+            <Link className="details-link" to="/">
+              discover more models
+              <span>➤</span>
+            </Link>
           </div>
         </div>
         <div className="reserve-btn-container">
-          <div className='details-reserve-btn'>
+          <div className="details-reserve-btn">
             <Link to="/add-reservations" state={details}>
               <button type="button" className="details-btn">
                 <span className="reserve-text">Reserve</span>
-                <img className="right-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAklEQVR4nM3Xu24TURAGYCM5OHSEwpQQCgoQFQ0NJHFoIMCbgAS8AV0gOI8QjAhIRDQQLooicZHzDkAEb0ACgiJUHzrKFBuwvbu+iBzpSEezc+bfmZ35Z7ZS2e8Lh3AVC1jG+9jpfA9XMD5MwBN4iF/4hqe4j5ux03kFW6HzAJODANbQxG88xwyqPfSraGA17qTI1MqCHsUGPuJ8Hy89hc9oo14G9Cve4HBZ0IydCazhSy54hHcjQLuGtQR4NcDbONhLsRnh7dvTLp5/SpnfK3tTUlzIMXQaN0qCT2OnY7ZHybwoYOQMvmOxJPhLtDqRQ6rBmYJGzpUFxyx+7iEZXAtyKJxQOBuksYgDBfTHQn8uK0yUt1IUtF/P8Qx3s4InXbNuiJ7bpdflrOAtbvUDnPH8B+7k6N1OWPsC+HEi9UFDXUC3iUf/K7nms4LUxLdTyo/C09AfC4xLWeF4FHdjhARy8R8CiQet1MQLGDjVJ2W+wlKnB5NB5FM5Bk7ieknQRtg+3k1hIVrYRBnDOaBHsLknqboMAu1o3sMYBFJCreNDz0EglOsxrqwN4nl4ul5o9PkLvB1hn66UXPFNN8PTetnLtSCWnWjis73qPMKaSuZ13JnPDW+vFdneikFhK9inmRnomyHbjjpdwrHKsJZdkplL/TTxLd7FTuckuzzUX5hRrT+dIUr6Buw0mQAAAABJRU5ErkJggg=="/>
+                <img className="right-icon" alt="reserve-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAklEQVR4nM3Xu24TURAGYCM5OHSEwpQQCgoQFQ0NJHFoIMCbgAS8AV0gOI8QjAhIRDQQLooicZHzDkAEb0ACgiJUHzrKFBuwvbu+iBzpSEezc+bfmZ35Z7ZS2e8Lh3AVC1jG+9jpfA9XMD5MwBN4iF/4hqe4j5ux03kFW6HzAJODANbQxG88xwyqPfSraGA17qTI1MqCHsUGPuJ8Hy89hc9oo14G9Cve4HBZ0IydCazhSy54hHcjQLuGtQR4NcDbONhLsRnh7dvTLp5/SpnfK3tTUlzIMXQaN0qCT2OnY7ZHybwoYOQMvmOxJPhLtDqRQ6rBmYJGzpUFxyx+7iEZXAtyKJxQOBuksYgDBfTHQn8uK0yUt1IUtF/P8Qx3s4InXbNuiJ7bpdflrOAtbvUDnPH8B+7k6N1OWPsC+HEi9UFDXUC3iUf/K7nms4LUxLdTyo/C09AfC4xLWeF4FHdjhARy8R8CiQet1MQLGDjVJ2W+wlKnB5NB5FM5Bk7ieknQRtg+3k1hIVrYRBnDOaBHsLknqboMAu1o3sMYBFJCreNDz0EglOsxrqwN4nl4ul5o9PkLvB1hn66UXPFNN8PTetnLtSCWnWjis73qPMKaSuZ13JnPDW+vFdneikFhK9inmRnomyHbjjpdwrHKsJZdkplL/TTxLd7FTuckuzzUX5hRrT+dIUr6Buw0mQAAAABJRU5ErkJggg==" />
               </button>
             </Link>
           </div>

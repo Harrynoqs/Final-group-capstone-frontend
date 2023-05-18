@@ -29,7 +29,9 @@
           "some": ["nesting", "id"]
         }
       }],
-      "no-param-reassign": 0
+      "no-param-reassign": 0,
+      "camelcase": "off",
+      "react/prop-types": 0
     },
     "overrides": [
       {

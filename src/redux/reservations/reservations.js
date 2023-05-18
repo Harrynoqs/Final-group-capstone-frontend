@@ -23,9 +23,9 @@ export const addReservation = createAsyncThunk(
 
 export const getReservations = createAsyncThunk(
   'reservations/getReservations',
-  async (user) => {
+  async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/users/${user}/reservations}`);
+      const res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/reservations/index`);
       return res.data;
     } catch (err) {
       return err.message;
@@ -42,14 +42,7 @@ export const reservationSlice = createSlice({
         state.push(payload);
       })
       .addCase(getReservations.fulfilled, (state, { payload }) => {
-        const reservation = {
-          date: payload.date_of_reservation,
-          city: payload.city,
-          duration: payload.duration_of_test_drive,
-          user: payload.user_id,
-          motorcycleId: payload.twowheeler_id,
-        };
-        state.push(reservation);
+        state.push(payload);
       });
   },
 });

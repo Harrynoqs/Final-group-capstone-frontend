@@ -15,9 +15,9 @@ const AddReservation = () => {
   }, [dispatch]);
 
 
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState(undefined);
   const [city, setCity] = useState('');
-  const [duration, setDuration] = useState(0);
+  const [duration, setDuration] = useState(undefined);
   const [motorcycleId, setMotorcycleId] = useState(selectedBikeId ? selectedBikeId : '');
   const [user, setUser] = useState('');
   const [notice, setNotice] = useState('');
@@ -61,7 +61,7 @@ const AddReservation = () => {
   }, [motorcycles]);
   
 
-  console.log(options);
+  console.log(user.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,18 +69,29 @@ const AddReservation = () => {
       setNotice('Error trying to submit request. Please try again.')
     }
     else {
-      const reservation = createNewReservation(date, city, motorcycleId, user.id);
+      const reservation = createNewReservation(date, city, duration, motorcycleId, user.id);
       dispatch(addReservation(reservation));
       setDate(null);
       setCity('');
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 200);
     }
   };
 
+  const backgroundStyle = {
+    backgroundImage: `linear-gradient(
+      rgba(33, 196, 123, 0.60), 
+      rgba(33, 196, 123, 0.60)
+    ),url("https://images.pexels.com/photos/2964/italian-vehicle-driving-motor-scooter.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,
+  }
+
   return (
+    <div className='reservation-form' style={backgroundStyle}>
     <div className='form-container'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="reservations-form">
         {options && options.length > 0 ? 
-          <select value={motorcycleId} onChange={(e) => setMotorcycleId(e.target.value)}>
+          <select value={motorcycleId} className="focus:ring-0" onChange={(e) => setMotorcycleId(e.target.value)}>
             <option value="" className="default-dropdown" disabled >Select a motorcycle to reserve</option>
             {options && options.map((option) => (
               <option key={option.id} value={option.id}>{option.name}</option>
@@ -90,17 +101,17 @@ const AddReservation = () => {
             <option value={motorcycleId}>{location.state?.name}</option>
           </select>
         }
-        <p>{motorcycleId}</p>
-        <input type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        <input placeholder="Duration" type="number" name="Duration" value={duration} onChange={(e) => setDuration(e.target.value)} />
-        <input placeholder="City" type="text" name="City" value={city} onChange={(e) => setCity(e.target.value)} />
+        <input type="date" name="date" value={date} className="focus:ring-0 placeholder-white" onChange={(e) => setDate(e.target.value)} required/>
+        <input placeholder="Duration" type="number" name="Duration" className="focus:ring-0 placeholder-black" value={duration} onChange={(e) => setDuration(e.target.value)} required/>
+        <input placeholder="City" type="text" name="City" value={city} className="focus:ring-0 placeholder-black" onChange={(e) => setCity(e.target.value)} required/>
+        <div className="error-message">
+          <p id="message">{notice}</p>
+        </div>
         <div className='btn-group'>
-          <button type="submit" name="Submit Reservation">Submit Reservation</button>
+          <button type="submit" name="Submit Reservation">Book Now</button>
         </div>
       </form>
-      <div className="error-message">
-      <p id="message">{notice}</p>
-      </div>
+    </div>
     </div>
   );
 };

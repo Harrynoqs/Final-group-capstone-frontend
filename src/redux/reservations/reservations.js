@@ -5,16 +5,16 @@ export const addReservation = createAsyncThunk(
   'reservations/addReservation',
   async (reservation) => {
     const {
-      date, city, duration, user, motorcycleId,
+      date, city, duration, motorcycleId, userId
     } = reservation;
     await axios.post(
-      `${import.meta.env.VITE_API_ENDPOINT}/reservations/user/${reservation.user}`,
+      `${import.meta.env.VITE_API_ENDPOINT}/reservations/user/${reservation.userId}`,
       {
         date_of_reservation: date,
         city,
         duration_of_test_drive: duration,
-        user_id: user,
         twowheeler_id: motorcycleId,
+        user_id: userId,
       },
     );
     return reservation;

@@ -10,6 +10,7 @@ import Login from './components/login';
 import AddMotorcycle from './components/addMotorcycle';
 import AddReservation from './components/addReservation';
 import MotorcycleDetails from './components/motorcycleDetails';
+import DeleteBike from './components/deleteBike';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route index element={<BikeModel />} />
               <Route path="/motorcycles/:id" element={<MotorcycleDetails />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/delete-motorcycle" element={<DeleteBike />} />
               <Route path="/add-motorcycle" element={<AddMotorcycle />} />
               <Route path="/add-reservations" element={<AddReservation />} />
             </Routes>

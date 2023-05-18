@@ -45,9 +45,23 @@ export const getMotorcycles = createAsyncThunk(
   },
 );
 
+export const removeSingleMotorcycle = createAsyncThunk(
+  'motorcycles/removeSingleMotorcycle',
+  async (id) => {
+    await axios.delete(`${import.meta.env.VITE_API_ENDPOINT}/twowheelers/${id}`);
+
+    return { id };
+  },
+);
+
 export const motorcycleSlice = createSlice({
   name: 'motorcycle',
   initialState: [],
+  reducers: {
+    clearMotorcycles: (state) => {
+      state.length = 0;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(addMotorcycle.fulfilled, (state, { payload }) => {
@@ -68,9 +82,14 @@ export const motorcycleSlice = createSlice({
           };
           state.push(motorcycle);
         });
+      })
+      .addCase(removeSingleMotorcycle.fulfilled, (state, action) => {
+        const filtered = state.filter(({ id }) => id !== action.payload.id);
+        return filtered;
       });
   },
 });
 
 const { reducer } = motorcycleSlice;
+export const { clearMotorcycles } = motorcycleSlice.actions;
 export default reducer;

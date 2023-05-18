@@ -60,9 +60,9 @@ function Sidebar() {
               </Link>
             </li>
             <li className="font-bold rounded-md hover:text-white hover:bg-green-400 side-links">
-              <Link to="/signin" className="p-3">
-                <i className="fa-solid fa-arrow-right-to-bracket" />
-                <span className="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+              <Link to="/delete-motorcycle" className="p-3">
+                <i className="fa-solid fa-trash" />
+                <span className="flex-1 ml-3 whitespace-nowrap">Delete Bike</span>
               </Link>
             </li>
           </ul>

@@ -48,11 +48,17 @@ aside {
 .aside-links {
   justify-content: center;
   align-items: flex-start;
+  transition: 0.8 ease;
+  transform: translateX(14%);
 }
 
 @media only screen and (max-width: 1224px) {
   aside {
     width: 200px;
+  }
+
+  .aside-links {
+    transform: translateX(0);
   }
 }
 
@@ -418,6 +424,100 @@ button[type="submit"] {
   }
 }
 
+.reservation-form {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.reservations-form > input,.reservations-form > select {
+  background-color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+.reservations-form::placeholder {
+  color: black !important;
+  opacity: 1;
+}
+
+.reservations-form:-moz-placeholder {
+  color: black !important;
+  opacity: 1;
+}
+
+.reservations-form::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: black !important;
+  opacity: 1;
+}
+
+.reservations-form:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+  opacity: 1;
+}
+
+.reservations-form::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+  opacity: 1;
+}
+
 .default-dropdown {
   color: gray;
+}
+
+#message {
+  color: #f85353;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 874px) {
+  .reservations-form {
+    padding: 0;
+    width: 100%;
+  }
+
+  .reservation-form {
+    width: 100%;
+  }
+}
+
+.delete-bikes {
+  width: 80%;
+  padding: 6rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 90vh;
+}
+
+.delete-heading {
+  padding-bottom: 2rem;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.delete-bikes-container {
+  width: 100%;
+}
+
+.bikes-delete-info {
+  justify-content: space-between;
+  transition: 0.1s ease-in;
+}
+
+.bikes-delete-info:hover {
+  background-color: #5eaf7a;
+}
+
+.removed-status {
+  text-transform: uppercase;
+  font-size: 12px;
 }

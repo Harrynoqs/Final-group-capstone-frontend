@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SwiperCore, { Virtual, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMotorcycles } from '../redux/motorcycles/motorcycles';
+import { getMotorcycles, clearMotorcycles } from '../redux/motorcycles/motorcycles';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,6 +18,7 @@ export default function BikeSwiper() {
   const [swiperRef, setSwiperRef] = useState(null);
 
   useEffect(() => {
+    dispatch(clearMotorcycles());
     dispatch(getMotorcycles());
   }, [dispatch]);
 

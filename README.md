@@ -22,9 +22,23 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 MotoMate <a name="about-project"></a>
+# 📖 SEH Bikes <a name="about-project"></a>
 
 - Cyclehub is a booking app that allows users to easily book and reserve motorcycles online. With Cyclehub, users can log in and access a wide range of motorcycles to choose from. You can check the back-end of this project [here.](https://github.com/Harrynoqs/Final-group-capstone-backend)
+
+
+## Kanban Board
+[Link to kanban board](https://github.com/users/Harrynoqs/projects/3)
+
+- Initial Kanban Board:
+
+*unavailable at the moment - repo owner can only make edits to the kanban, and he has been available*
+
+- Final Kanban Board:
+
+![kanban](https://github.com/Harrynoqs/Final-group-capstone-frontend/assets/67250802/9b39b437-25cb-478f-add5-ee9b7688ae87)
+*Kanban board at the moment, all tasks are completed in practice, but not all are marked, due to the unavailability of the repo-owner*
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -53,9 +67,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Add a motorcycle]**
-- **[Reserve a motorcycle]**
-- **[Delete a motorcycle]**
+- **Add a bike**
+- **Reserve a bike**
+- **Delete items**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,8 +162,8 @@ To start the app, run the following command in your terminal:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Register with email and password.]**
-- [ ] **[Edit motorcycle details.]**
+- [ ] **Register with email and password**
+- [ ] **Edit motorcycle details**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
